@@ -19,10 +19,10 @@ This is a **beginner-friendly example** to understand:
 
 ---
 
-![Screenshot 1](assets/Screenshot (190).png)
-![Screenshot 2](assets/Screenshot (191).png)
-![Screenshot 3](assets/Screenshot (194).png)
+![Screenshot 1](assets/Screenshot%20(190).png)
+![Screenshot 2](assets/Screenshot%20(191).png)
+![Screenshot 3](assets/Screenshot%20(194).png)
 
-![Screenshot 1](assets/Screenshot (198).png)
-![Screenshot 2](assets/Screenshot (199).png)
-![Screenshot 3](assets/Screenshot (200).png)
+![Screenshot 4](assets/Screenshot%20(198).png)
+![Screenshot 5](assets/Screenshot%20(199).png)
+![Screenshot 6](assets/Screenshot%20(200).png)
