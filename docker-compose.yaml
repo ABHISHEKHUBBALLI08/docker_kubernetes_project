@@ -1,0 +1,51 @@
+version: '3.9'   # use valid compose version, 5.3 doesn't exist
+services:
+  sql:
+    image: mysql:5.7
+    container_name: mysql
+    hostname: demo-sql
+    restart: always
+    environment:
+      MYSQL_DATABASE: db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3307:3306"
+    expose:
+      - "3306"
+    volumes:
+      - my-volume:/var/lib/mysql
+      - ./api-build/table.sql:/docker-entrypoint-initdb.d/table.sql   # ✅ add init script
+    networks:
+      - demo-net
+
+  backend:
+    build: ./api-build
+    image: my-backend
+    container_name: demo-api
+    hostname: demo-api
+    ports:
+      - "8081:8080"
+    expose:
+      - "8080"
+    networks:
+      - demo-net
+
+  frontend:
+    build: ./angular-build/angular-tour-of-heroes
+    image: angular-app
+    container_name: my-front
+    hostname: my-front
+    ports:
+      - "8082:80"    # ⚠ changed, earlier you reused 8081 (conflict with backend)
+    expose:
+      - "80"
+    networks:
+      - demo-net
+
+volumes:
+  my-volume:
+
+networks:
+  demo-net:
